@@ -9,6 +9,7 @@ interface Props {
 const { title, description, ogTitle, ogDescription } = Astro.props;
 const siteUrl = 'https://summitplumbingslc.com';
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
+const currentPath = Astro.url.pathname;
 ---
 
 <!doctype html>
@@ -28,10 +29,10 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
     <meta property="og:description" content={ogDescription || description} />
     <meta property="og:locale" content="en_US" />
 
-    <!-- Fonts -->
+    <!-- Fonts: DM Serif Display (headings) + Outfit (body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
     <!-- Schema.org LocalBusiness -->
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -82,44 +83,47 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
       }
     })} />
   </head>
-  <body class="bg-white text-gray-800 min-h-screen flex flex-col">
+  <body class="bg-warm-50 min-h-screen flex flex-col">
     <!-- Top Bar -->
-    <div class="bg-navy-950 text-white text-sm py-2">
-      <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
-        <span class="hidden sm:inline">Serving Salt Lake City & the Wasatch Front Since 2008</span>
-        <span class="sm:hidden text-xs">Serving SLC Since 2008</span>
-        <a href="tel:+18015550199" class="font-semibold hover:text-accent-400 transition-colors">
+    <div class="bg-navy-950 text-white/80 text-sm py-2.5 border-b border-white/5">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 flex justify-between items-center">
+        <span class="hidden sm:inline text-[0.8rem] tracking-wide">Serving Salt Lake City & the Wasatch Front Since 2008</span>
+        <span class="sm:hidden text-xs tracking-wide">Serving SLC Since 2008</span>
+        <a href="tel:+18015550199" class="font-semibold text-white hover:text-accent-400 transition-colors text-[0.8rem] tracking-wide flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+          </svg>
           (801) 555-0199
         </a>
       </div>
     </div>
 
     <!-- Header -->
-    <header class="bg-white shadow-sm sticky top-0 z-50 border-b border-gray-100">
-      <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-        <a href="/" class="flex items-center gap-2">
-          <div class="w-10 h-10 bg-navy-900 rounded-lg flex items-center justify-center">
-            <svg class="w-6 h-6 text-accent-500" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+    <header class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-navy-100/50">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-11 h-11 bg-navy-950 rounded-lg flex items-center justify-center transition-transform group-hover:scale-105">
+            <svg class="w-6 h-6 text-accent-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3H21m-3.75 3H21" />
             </svg>
           </div>
           <div>
-            <span class="text-lg font-bold text-navy-900 leading-tight block">Summit Plumbing</span>
-            <span class="text-xs text-gray-500 leading-tight block">& Heating</span>
+            <span class="text-lg font-bold text-navy-950 leading-tight block font-display">Summit Plumbing</span>
+            <span class="text-[0.7rem] text-navy-400 leading-tight block tracking-widest uppercase font-medium">& Heating</span>
           </div>
         </a>
 
         <!-- Desktop Nav -->
-        <nav class="hidden md:flex items-center gap-6">
-          <a href="/" class="text-gray-700 hover:text-navy-900 font-medium transition-colors">Home</a>
-          <a href="/services" class="text-gray-700 hover:text-navy-900 font-medium transition-colors">Services</a>
-          <a href="/about" class="text-gray-700 hover:text-navy-900 font-medium transition-colors">About</a>
-          <a href="/contact" class="text-gray-700 hover:text-navy-900 font-medium transition-colors">Contact</a>
+        <nav class="hidden md:flex items-center gap-1">
+          <a href="/" class:list={["px-4 py-2 rounded-lg font-medium transition-all text-[0.9rem]", currentPath === "/" ? "text-navy-950 bg-navy-50" : "text-navy-600 hover:text-navy-950 hover:bg-navy-50/50"]}>Home</a>
+          <a href="/services/" class:list={["px-4 py-2 rounded-lg font-medium transition-all text-[0.9rem]", currentPath.startsWith("/services") ? "text-navy-950 bg-navy-50" : "text-navy-600 hover:text-navy-950 hover:bg-navy-50/50"]}>Services</a>
+          <a href="/about/" class:list={["px-4 py-2 rounded-lg font-medium transition-all text-[0.9rem]", currentPath.startsWith("/about") ? "text-navy-950 bg-navy-50" : "text-navy-600 hover:text-navy-950 hover:bg-navy-50/50"]}>About</a>
+          <a href="/contact/" class:list={["px-4 py-2 rounded-lg font-medium transition-all text-[0.9rem]", currentPath.startsWith("/contact") ? "text-navy-950 bg-navy-50" : "text-navy-600 hover:text-navy-950 hover:bg-navy-50/50"]}>Contact</a>
         </nav>
 
-        <div class="hidden md:flex items-center gap-3">
-          <a href="tel:+18015550199" class="flex items-center gap-2 bg-accent-500 hover:bg-accent-600 text-white font-bold px-5 py-2.5 rounded-lg transition-colors">
-            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+        <div class="hidden md:flex items-center">
+          <a href="tel:+18015550199" class="btn-primary !py-2.5 !px-5 !text-[0.9rem]">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
             </svg>
             (801) 555-0199
@@ -127,21 +131,24 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
         </div>
 
         <!-- Mobile Menu Button -->
-        <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-700" aria-label="Open menu">
-          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+        <button id="mobile-menu-btn" class="md:hidden p-2 text-navy-700 hover:bg-navy-50 rounded-lg transition-colors" aria-label="Open menu">
+          <svg id="menu-icon-open" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+          <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
           </svg>
         </button>
       </div>
 
       <!-- Mobile Nav -->
-      <div id="mobile-menu" class="hidden md:hidden border-t border-gray-100 bg-white">
-        <nav class="flex flex-col px-4 py-3 gap-1">
-          <a href="/" class="py-2 text-gray-700 hover:text-navy-900 font-medium">Home</a>
-          <a href="/services" class="py-2 text-gray-700 hover:text-navy-900 font-medium">Services</a>
-          <a href="/about" class="py-2 text-gray-700 hover:text-navy-900 font-medium">About</a>
-          <a href="/contact" class="py-2 text-gray-700 hover:text-navy-900 font-medium">Contact</a>
-          <a href="tel:+18015550199" class="mt-2 flex items-center justify-center gap-2 bg-accent-500 text-white font-bold px-5 py-3 rounded-lg">
+      <div id="mobile-menu" class="hidden md:hidden border-t border-navy-100/50 bg-white">
+        <nav class="flex flex-col px-4 sm:px-6 py-4 gap-1">
+          <a href="/" class:list={["py-2.5 px-3 rounded-lg font-medium transition-colors", currentPath === "/" ? "text-navy-950 bg-navy-50" : "text-navy-600"]}>Home</a>
+          <a href="/services/" class:list={["py-2.5 px-3 rounded-lg font-medium transition-colors", currentPath.startsWith("/services") ? "text-navy-950 bg-navy-50" : "text-navy-600"]}>Services</a>
+          <a href="/about/" class:list={["py-2.5 px-3 rounded-lg font-medium transition-colors", currentPath.startsWith("/about") ? "text-navy-950 bg-navy-50" : "text-navy-600"]}>About</a>
+          <a href="/contact/" class:list={["py-2.5 px-3 rounded-lg font-medium transition-colors", currentPath.startsWith("/contact") ? "text-navy-950 bg-navy-50" : "text-navy-600"]}>Contact</a>
+          <a href="tel:+18015550199" class="mt-3 btn-primary !py-3 text-center">
             <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
             </svg>
@@ -156,46 +163,46 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
     </main>
 
     <!-- Footer -->
-    <footer class="bg-navy-950 text-white">
-      <div class="max-w-6xl mx-auto px-4 py-12">
-        <div class="grid md:grid-cols-4 gap-8">
+    <footer class="bg-navy-950 text-white noise-overlay">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-14 relative z-10">
+        <div class="grid md:grid-cols-4 gap-10">
           <!-- Company Info -->
           <div class="md:col-span-1">
-            <div class="flex items-center gap-2 mb-4">
-              <div class="w-8 h-8 bg-navy-800 rounded-lg flex items-center justify-center">
-                <svg class="w-5 h-5 text-accent-500" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+            <div class="flex items-center gap-3 mb-5">
+              <div class="w-9 h-9 bg-navy-800 rounded-lg flex items-center justify-center">
+                <svg class="w-5 h-5 text-accent-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3H21m-3.75 3H21" />
                 </svg>
               </div>
-              <span class="font-bold text-lg">Summit Plumbing & Heating</span>
+              <span class="font-display text-lg">Summit Plumbing & Heating</span>
             </div>
-            <p class="text-gray-400 text-sm leading-relaxed">
+            <p class="text-white/50 text-sm leading-relaxed">
               Licensed, bonded, and insured. Proudly serving Salt Lake City and the Wasatch Front since 2008.
             </p>
           </div>
 
           <!-- Quick Links -->
           <div>
-            <h3 class="font-semibold text-white mb-4">Quick Links</h3>
-            <ul class="space-y-2 text-sm text-gray-400">
-              <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
-              <li><a href="/services" class="hover:text-white transition-colors">Services</a></li>
-              <li><a href="/about" class="hover:text-white transition-colors">About Us</a></li>
-              <li><a href="/contact" class="hover:text-white transition-colors">Contact</a></li>
+            <h3 class="font-semibold text-white mb-5 text-sm tracking-wider uppercase">Quick Links</h3>
+            <ul class="space-y-3 text-sm text-white/50">
+              <li><a href="/" class="hover:text-accent-400 transition-colors">Home</a></li>
+              <li><a href="/services/" class="hover:text-accent-400 transition-colors">Services</a></li>
+              <li><a href="/about/" class="hover:text-accent-400 transition-colors">About Us</a></li>
+              <li><a href="/contact/" class="hover:text-accent-400 transition-colors">Contact</a></li>
             </ul>
           </div>
 
           <!-- Contact Info -->
           <div>
-            <h3 class="font-semibold text-white mb-4">Contact</h3>
-            <ul class="space-y-2 text-sm text-gray-400">
+            <h3 class="font-semibold text-white mb-5 text-sm tracking-wider uppercase">Contact</h3>
+            <ul class="space-y-3 text-sm text-white/50">
               <li>
-                <a href="tel:+18015550199" class="hover:text-accent-400 transition-colors font-semibold text-white">
+                <a href="tel:+18015550199" class="hover:text-accent-400 transition-colors font-semibold text-accent-400">
                   (801) 555-0199
                 </a>
               </li>
               <li>
-                <a href="mailto:info@summitplumbingslc.com" class="hover:text-white transition-colors">
+                <a href="mailto:info@summitplumbingslc.com" class="hover:text-accent-400 transition-colors">
                   info@summitplumbingslc.com
                 </a>
               </li>
@@ -206,40 +213,66 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
 
           <!-- Hours -->
           <div>
-            <h3 class="font-semibold text-white mb-4">Business Hours</h3>
-            <ul class="space-y-2 text-sm text-gray-400">
-              <li class="flex justify-between"><span>Mon - Fri</span><span>7:00 AM - 6:00 PM</span></li>
-              <li class="flex justify-between"><span>Saturday</span><span>8:00 AM - 2:00 PM</span></li>
-              <li class="flex justify-between"><span>Sunday</span><span>Closed</span></li>
-              <li class="mt-3 text-accent-400 font-semibold">24/7 Emergency Service</li>
+            <h3 class="font-semibold text-white mb-5 text-sm tracking-wider uppercase">Business Hours</h3>
+            <ul class="space-y-2.5 text-sm text-white/50">
+              <li class="flex justify-between"><span>Mon - Fri</span><span class="text-white/70">7:00 AM - 6:00 PM</span></li>
+              <li class="flex justify-between"><span>Saturday</span><span class="text-white/70">8:00 AM - 2:00 PM</span></li>
+              <li class="flex justify-between"><span>Sunday</span><span class="text-white/40">Closed</span></li>
+              <li class="mt-4 text-accent-400 font-semibold flex items-center gap-2">
+                <span class="w-2 h-2 bg-accent-400 rounded-full animate-pulse"></span>
+                24/7 Emergency Service
+              </li>
             </ul>
           </div>
         </div>
 
-        <div class="border-t border-navy-800 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p class="text-sm text-gray-500">&copy; {new Date().getFullYear()} Summit Plumbing & Heating. All rights reserved.</p>
-          <div class="flex items-center gap-2 text-sm text-gray-500">
+        <div class="border-t border-white/10 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p class="text-sm text-white/30">&copy; {new Date().getFullYear()} Summit Plumbing & Heating. All rights reserved.</p>
+          <div class="flex items-center gap-2 text-sm text-white/30">
             <span>UT License #PL-2008-4521</span>
           </div>
         </div>
       </div>
 
       <!-- Sticky Mobile CTA -->
-      <div class="md:hidden fixed bottom-0 left-0 right-0 bg-accent-500 z-50 safe-area-bottom">
-        <a href="tel:+18015550199" class="flex items-center justify-center gap-2 text-white font-bold py-4">
+      <div class="md:hidden fixed bottom-0 left-0 right-0 mobile-cta z-50 safe-area-bottom">
+        <a href="tel:+18015550199" class="flex items-center justify-center gap-2 text-white font-bold py-4 tracking-wide">
           <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
           </svg>
-          Call Now - (801) 555-0199
+          Call Now — (801) 555-0199
         </a>
       </div>
     </footer>
 
+    <!-- Scroll Reveal Script -->
     <script>
+      // Mobile menu toggle
       const btn = document.getElementById('mobile-menu-btn');
       const menu = document.getElementById('mobile-menu');
+      const iconOpen = document.getElementById('menu-icon-open');
+      const iconClose = document.getElementById('menu-icon-close');
       btn?.addEventListener('click', () => {
-        menu?.classList.toggle('hidden');
+        const isHidden = menu?.classList.toggle('hidden');
+        iconOpen?.classList.toggle('hidden', !isHidden);
+        iconClose?.classList.toggle('hidden', isHidden);
+      });
+
+      // Intersection Observer for scroll-triggered animations
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+      );
+
+      document.querySelectorAll('.reveal, .stagger-children').forEach((el) => {
+        observer.observe(el);
       });
     </script>
   </body>

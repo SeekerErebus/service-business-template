@@ -8,64 +8,66 @@ import '../styles/global.css';
   description="Get in touch with Summit Plumbing & Heating in Salt Lake City. Call (801) 555-0199 for a free estimate. 24/7 emergency service available."
 >
   <!-- Hero -->
-  <section class="bg-navy-950 text-white py-16">
-    <div class="max-w-6xl mx-auto px-4">
-      <p class="text-accent-400 font-semibold mb-3 text-sm uppercase tracking-wide">Get in Touch</p>
-      <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Contact Us</h1>
-      <p class="text-lg text-gray-300 max-w-2xl">
+  <section class="bg-navy-950 text-white hero-pattern">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 md:py-20 relative z-10">
+      <p class="section-label text-accent-400 mb-5">Get in Touch</p>
+      <h1 class="font-display text-4xl md:text-5xl mb-4">Contact Us</h1>
+      <p class="text-lg text-white/60 max-w-2xl leading-relaxed">
         Have a question or need service? Give us a call or fill out the form below. Free estimates on all work.
       </p>
     </div>
+    <div class="h-1 bg-gradient-to-r from-accent-600 via-accent-400 to-accent-600"></div>
   </section>
 
   <!-- Contact Content -->
-  <section class="py-16 md:py-20">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="grid md:grid-cols-2 gap-12">
+  <section class="py-20 md:py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid md:grid-cols-2 gap-14">
         <!-- Contact Form -->
-        <div>
-          <h2 class="text-2xl font-bold text-navy-950 mb-6">Send Us a Message</h2>
+        <div class="reveal">
+          <p class="section-label text-accent-600 mb-4">Message Us</p>
+          <h2 class="font-display text-2xl text-navy-950 mb-8">Send Us a Message</h2>
           <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-5">
             <div class="grid sm:grid-cols-2 gap-5">
               <div>
-                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
+                <label for="name" class="block text-sm font-medium text-navy-700 mb-1.5">Full Name *</label>
                 <input
                   type="text"
                   id="name"
                   name="name"
                   required
-                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-navy-500 focus:ring-2 focus:ring-navy-200 outline-none transition-all text-sm"
+                  class="form-input"
                   placeholder="John Smith"
                 />
               </div>
               <div>
-                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number *</label>
+                <label for="phone" class="block text-sm font-medium text-navy-700 mb-1.5">Phone Number *</label>
                 <input
                   type="tel"
                   id="phone"
                   name="phone"
                   required
-                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-navy-500 focus:ring-2 focus:ring-navy-200 outline-none transition-all text-sm"
+                  class="form-input"
                   placeholder="(801) 555-1234"
                 />
               </div>
             </div>
             <div>
-              <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+              <label for="email" class="block text-sm font-medium text-navy-700 mb-1.5">Email Address</label>
               <input
                 type="email"
                 id="email"
                 name="email"
-                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-navy-500 focus:ring-2 focus:ring-navy-200 outline-none transition-all text-sm"
+                class="form-input"
                 placeholder="john@example.com"
               />
             </div>
             <div>
-              <label for="service" class="block text-sm font-medium text-gray-700 mb-1">Service Needed</label>
+              <label for="service" class="block text-sm font-medium text-navy-700 mb-1.5">Service Needed</label>
               <select
                 id="service"
                 name="service"
-                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-navy-500 focus:ring-2 focus:ring-navy-200 outline-none transition-all text-sm bg-white"
+                class="form-input"
               >
                 <option value="">Select a service...</option>
                 <option value="plumbing-repair">Plumbing Repair</option>
@@ -80,87 +82,98 @@ import '../styles/global.css';
               </select>
             </div>
             <div>
-              <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Tell Us About Your Project *</label>
+              <label for="message" class="block text-sm font-medium text-navy-700 mb-1.5">Tell Us About Your Project *</label>
               <textarea
                 id="message"
                 name="message"
                 rows="5"
                 required
-                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-navy-500 focus:ring-2 focus:ring-navy-200 outline-none transition-all text-sm resize-y"
+                class="form-input resize-y"
                 placeholder="Describe what you need help with..."
               ></textarea>
             </div>
             <button
               type="submit"
-              class="w-full bg-accent-500 hover:bg-accent-600 text-white font-bold py-4 px-6 rounded-lg transition-colors text-lg"
+              class="btn-primary w-full !text-base"
             >
               Send Message
             </button>
-            <p class="text-xs text-gray-500 text-center">
+            <p class="text-xs text-navy-400 text-center">
               We typically respond within 1 business hour during business hours.
             </p>
           </form>
         </div>
 
         <!-- Contact Info -->
-        <div>
-          <h2 class="text-2xl font-bold text-navy-950 mb-6">Contact Information</h2>
+        <div class="reveal">
+          <p class="section-label text-accent-600 mb-4">Contact Details</p>
+          <h2 class="font-display text-2xl text-navy-950 mb-8">Contact Information</h2>
 
           <!-- Phone -->
-          <div class="bg-navy-950 rounded-xl p-6 mb-6">
-            <p class="text-accent-400 text-sm font-semibold mb-2">Fastest Way to Reach Us</p>
-            <a href="tel:+18015550199" class="text-white text-3xl font-extrabold hover:text-accent-400 transition-colors">
-              (801) 555-0199
-            </a>
-            <p class="text-gray-400 text-sm mt-2">24/7 emergency line available</p>
+          <div class="bg-navy-950 rounded-xl p-7 mb-8 hero-pattern overflow-hidden">
+            <div class="relative z-10">
+              <p class="text-accent-400 text-sm font-semibold mb-2 tracking-wide">Fastest Way to Reach Us</p>
+              <a href="tel:+18015550199" class="text-white text-3xl font-display hover:text-accent-400 transition-colors">
+                (801) 555-0199
+              </a>
+              <p class="text-white/40 text-sm mt-3 flex items-center gap-2">
+                <span class="w-2 h-2 bg-accent-400 rounded-full animate-pulse"></span>
+                24/7 emergency line available
+              </p>
+            </div>
           </div>
 
           <!-- Details -->
           <div class="space-y-6">
-            <div class="flex gap-4">
-              <div class="flex-shrink-0 w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
-                <svg class="w-5 h-5 text-navy-900" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <div class="flex gap-4 group">
+              <div class="flex-shrink-0 w-11 h-11 bg-navy-50 rounded-lg flex items-center justify-center group-hover:bg-navy-100 transition-colors">
+                <svg class="w-5 h-5 text-navy-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
                 </svg>
               </div>
               <div>
                 <p class="font-semibold text-navy-950">Email</p>
-                <a href="mailto:info@summitplumbingslc.com" class="text-gray-600 hover:text-navy-900 transition-colors text-sm">
+                <a href="mailto:info@summitplumbingslc.com" class="text-navy-500 hover:text-accent-600 transition-colors text-sm">
                   info@summitplumbingslc.com
                 </a>
               </div>
             </div>
 
-            <div class="flex gap-4">
-              <div class="flex-shrink-0 w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
-                <svg class="w-5 h-5 text-navy-900" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <div class="flex gap-4 group">
+              <div class="flex-shrink-0 w-11 h-11 bg-navy-50 rounded-lg flex items-center justify-center group-hover:bg-navy-100 transition-colors">
+                <svg class="w-5 h-5 text-navy-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                   <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
                 </svg>
               </div>
               <div>
                 <p class="font-semibold text-navy-950">Office Address</p>
-                <p class="text-gray-600 text-sm">
+                <p class="text-navy-500 text-sm">
                   1847 Pioneer Ave, Suite 200<br />
                   Salt Lake City, UT 84101
                 </p>
               </div>
             </div>
 
-            <div class="flex gap-4">
-              <div class="flex-shrink-0 w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
-                <svg class="w-5 h-5 text-navy-900" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <div class="flex gap-4 group">
+              <div class="flex-shrink-0 w-11 h-11 bg-navy-50 rounded-lg flex items-center justify-center group-hover:bg-navy-100 transition-colors">
+                <svg class="w-5 h-5 text-navy-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                 </svg>
               </div>
               <div>
                 <p class="font-semibold text-navy-950">Business Hours</p>
-                <ul class="text-sm text-gray-600 space-y-1 mt-1">
-                  <li class="flex justify-between gap-8"><span>Monday - Friday</span><span class="font-medium">7:00 AM - 6:00 PM</span></li>
-                  <li class="flex justify-between gap-8"><span>Saturday</span><span class="font-medium">8:00 AM - 2:00 PM</span></li>
-                  <li class="flex justify-between gap-8"><span>Sunday</span><span class="font-medium text-gray-400">Closed</span></li>
+                <ul class="text-sm text-navy-500 space-y-1.5 mt-1.5">
+                  <li class="flex justify-between gap-8"><span>Monday - Friday</span><span class="font-medium text-navy-700">7:00 AM - 6:00 PM</span></li>
+                  <li class="flex justify-between gap-8"><span>Saturday</span><span class="font-medium text-navy-700">8:00 AM - 2:00 PM</span></li>
+                  <li class="flex justify-between gap-8"><span>Sunday</span><span class="font-medium text-navy-400">Closed</span></li>
                 </ul>
-                <p class="text-accent-600 font-semibold text-sm mt-2">24/7 Emergency Service Available</p>
+                <p class="text-accent-600 font-semibold text-sm mt-3 flex items-center gap-2">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
+                  </svg>
+                  24/7 Emergency Service Available
+                </p>
               </div>
             </div>
           </div>
@@ -179,12 +192,13 @@ import '../styles/global.css';
                 referrerpolicy="no-referrer-when-downgrade"
               ></iframe>
             -->
-            <div class="bg-gray-100 rounded-xl h-[300px] flex items-center justify-center border-2 border-dashed border-gray-300">
-              <div class="text-center text-gray-400 p-6">
-                <svg class="w-12 h-12 mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor">
+            <div class="bg-navy-50 rounded-xl h-[280px] flex items-center justify-center border border-navy-100 relative overflow-hidden">
+              <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(0deg, #080e1c 1px, transparent 1px), linear-gradient(90deg, #080e1c 1px, transparent 1px); background-size: 24px 24px;"></div>
+              <div class="text-center text-navy-400 p-6 relative z-10">
+                <svg class="w-10 h-10 mx-auto mb-2 text-navy-300" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498 4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 0 0-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0Z" />
                 </svg>
-                <p class="font-medium">Google Maps Embed</p>
+                <p class="font-semibold text-navy-500">Google Maps Embed</p>
                 <p class="text-sm">Replace with actual embed code</p>
               </div>
             </div>
